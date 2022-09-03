@@ -1,0 +1,55 @@
+<div class='bg-slate-100 p-4 shadow-lg rounded-xl'>
+  <h1 class='text-2xl font-bold text-center text-slate-600'>Add Subject Details</h1>
+  <%= form_with url:"/main/validate?amount=#{@amount}",method: :post do |f|%>
+    <% for i in 1..@amount do %>
+      <div class='my-4 flex flex-col'>
+        <% #Subject %>
+        <%= f.label  "Subject #{i} :"%>
+        <div>
+          <% if @subjectValue %>
+            <% if @subjectValue[i-1]==""%>
+              <%= f.text_field "subject#{i}", class: 'border-2 border-red-500 p-2 rounded-lg'%>
+            <% else %>
+              <%= f.text_field :"subject#{i}",value: @subjectValue[i-1],class: 'border-2 border-gray-300 p-2 rounded-lg'%>
+            <%end%>
+          <% else %>
+            <%= f.text_field :"subject#{i}",class: 'border-2 border-gray-300 p-2 rounded-lg'%>
+          <%end%>
+        </div>
+        <div>
+          <% if @errorSubject %>
+            <% if @errorSubject.include?(i.to_s) %>
+              <%= f.label "Please enter subject#{i}",class: 'text-red-500 block mt-2 flex justify-end' %>
+            <% end %>
+          <% end %>
+        </div>
+        <div class='mt-2'>
+          <% #Score %>
+          <%= f.label  "score #{i} :"%>
+          <div>
+            <% if @scoreValue %>
+              <% if @scoreValue[i-1]==""%>
+                <%= f.number_field "score#{i}", class: 'border-2 border-red-500 p-2 rounded-lg'%>
+              <% else %>
+                <%= f.number_field :"score#{i}",value: @scoreValue[i-1],class: 'border-2 border-gray-300 p-2 rounded-lg'%>
+              <%end%>
+            <% else %>
+              <%= f.number_field :"score#{i}",class: 'border-2 border-gray-300 p-2 rounded-lg'%>
+            <%end%>
+          </div>
+          <div>
+            <% if @errorScore %>
+              <% if @errorScore.include?(i.to_s) %>
+                <%= f.label "Please enter score#{i}",class: 'text-red-500 block mt-2 flex justify-end' %>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <hr>
+    <%end%>
+    <button class='myBtn'>
+      <%= f.submit "Submit" %>
+    </button>
+  <%end%>
+</div>

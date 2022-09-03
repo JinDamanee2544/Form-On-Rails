@@ -1,0 +1,12 @@
+<div class='bg-slate-100 p-4 shadow-lg rounded-xl'>
+  <h1 class='text-2xl font-bold m-10 text-slate-600'>Subject Ranking</h1>
+  <%= form_with url:'/main/test',method: :get do |f|%>
+    <div class='flex items-center min-w-fit my-6 mx-2 justify-between'>
+      <%= f.label :amount , "Amount of Subjects :"%>
+      <%= f.select :amount, ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'] %>
+    </div>
+    <button class='myBtn'>
+      <%= f.submit "Submit" %>
+    </button>
+  <% end %>
+</div>
