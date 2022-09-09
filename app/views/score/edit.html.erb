@@ -1,0 +1,17 @@
+<div class='bg-slate-100 p-4 shadow-lg rounded-xl flex flex-col'>
+  <h1 class='text-2xl font-bold text-center text-slate-700 my-4 mx-2'>Edit Subject <%= @name%></h1>
+  <%= form_with url:"/score/editHandler",method: :post ,class:"" do |f|%>
+    <%= f.hidden_field :sid ,value: @sid %>
+    <%= f.label "Name" , class: 'text-slate-700' %>
+    <%= f.text_field :editName ,value: @sname ,class: 'border-2 border-gray-300 p-2 rounded-lg block my-2'%>
+    <%= f.label "Score" , class: 'text-slate-700' %>
+    <%= f.text_field :editScore, value: @sscore,class: 'border-2 border-gray-300 p-2 rounded-lg block my-2' %>
+    <div class='flex justify-end gap-x-2'>
+      <%= f.submit "Submit" ,class: 'myBtn w-max bg-green-500' %>
+      <button class='myBtn w-max'>
+        <%= link_to 'Back', '/score/list' %>
+      </button>
+    </div>
+  <%end%>
+</div>
+</div>

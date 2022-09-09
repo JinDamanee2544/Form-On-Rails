@@ -1,0 +1,27 @@
+<div class='bg-slate-100 p-4 shadow-lg rounded-xl flex flex-col'>
+  <h1 class='text-5xl font-bold text-center text-slate-700 my-4 mx-2'>Dashboard</h1>
+  <h1><%= @testName %></h1>
+  <div>
+    <%if Subject.all.empty? %>
+      <div class='flex justify-center items-center p-10'>
+        <h1>No Subject</h1>
+      </div>
+    <%else%>
+      <% Subject.all.each do |s|%>
+        <div class=' p-2 rounded-md hover:bg-slate-200'>
+          <div class='flex justify-between font-bold'>
+            <h1><%= s.name %></h1>
+            <h1><%= s.score %></h1>
+          </div>
+          <button class='text-white bg-blue-500 p-1 rounded'>
+            <%= link_to 'Edit',"/score/edit?sid=#{s.id}&sname=#{s.name}&sscore=#{s.score}" %>
+          </button>
+          <button class='text-white bg-red-500 p-1 rounded'>
+            <%= link_to 'Delete',"/score/delete?sid=#{s.id}",method: :delete %>
+          </button>
+        </div>
+      <%end%>
+    <%end%>
+  </div>
+  <%= link_to 'Add Again', '/' ,class: 'myBtn mt-2 text-center' %>
+</div>

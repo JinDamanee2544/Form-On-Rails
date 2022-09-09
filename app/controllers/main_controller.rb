@@ -38,9 +38,22 @@ class MainController < ApplicationController
       end
     end
 
+    # if there are no errors, redirect to display
     if(@errorSubject.length == 0 and @errorScore.length == 0)
+      # Okay!
+      for i in 0...@subjectList.length do
+        @currSubject = Subject.find_by(name:@subjectList[i])
+        
+        if(@currSubject != nil) #found
+            @currSubject.update(score: @scoreList[i])
+         else  # not found
+            Subject.create(name: @subjectList[i],score: @scoreList[i])
+         end
+      
+      end
       redirect_to action: 'display' ,subjectList: @subjectList, scoreList: @scoreList
     else
+      # Error!
       redirect_to action: 'test', amount: params[:amount] , errorSubject: @errorSubject , subjectValue: @subjectList , errorScore: @errorScore , scoreValue: @scoreList
     end 
   end 
