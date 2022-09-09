@@ -16,6 +16,8 @@
     <h1 class='text-5xl font-bold'><%= @bestSubject %></h1>
     <p>Best Subject</p>
   </div>
-  <%= link_to 'Add Again', '/' ,class: 'myBtn mt-2 text-center' %>
-  <%= link_to 'Dashboard', '/score/list' ,class: 'myBtn mt-2 text-center' %>
+  <div class='flex gap-10 p-2'>
+    <%= link_to 'Add Again', '/' ,class: 'myBtn mt-2 text-center' %>
+    <%= link_to 'Dashboard', '/score/list' ,class: 'myBtn mt-2 text-center bg-indigo-500' %>
+  </div>
 </div>

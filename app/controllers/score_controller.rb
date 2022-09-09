@@ -6,6 +6,7 @@ class ScoreController < ApplicationController
   def edit
     @sname = params[:sname]
     @sid = params[:sid]
+    @sscore = params[:sscore]
     puts 'Starting edit function'
     puts @sname
     puts @sid
@@ -26,8 +27,8 @@ class ScoreController < ApplicationController
   def delete
     # Delete Function
     @sid = params[:sid]
-    Subject.delete(@id)
-    puts "Deleted subject with id: #{@id}"
+    Subject.delete(@sid)
+    puts "Deleted subject with sid: #{@sid}"
     redirect_to '/score/list' # refresh the page
   end
 end
