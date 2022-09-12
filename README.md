@@ -1,24 +1,16 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Form On Rails
 
-Things you may want to cover:
+- Build with Rails and TailwindCSS
 
-* Ruby version
+## TailwindCSS
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Please use command below
+```bash
+  ./bin/dev 
+```
+Instead of
+```bash
+  rails s
+```
+to build a Tailwind Class to static file ^^
